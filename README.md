@@ -19,10 +19,16 @@ This is a simple Symfony-based Tax Calculator application. It allows users to in
 - Symfony 6.x
 - Composer
 - MySQL or MariaDB
-- Node.js (for managing frontend assets like CSS and JavaScript)
 - A web server like Apache or Nginx
 
 ---
+
+## Routes
+
+/tax-calculator  --> main page
+/admin/tax-band/  --> admin page
+/admin/tax-band/new  --> add a new band
+/admin/tax-band/edit  --> edit a band
 
 ## Installation
 
