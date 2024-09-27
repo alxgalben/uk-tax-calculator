@@ -1,0 +1,29 @@
+{% extends 'backend_layout.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>{{ tax_band.id ? 'Edit Tax Band' : 'Add New Tax Band' }}</h1>
+
+    {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_label(form.lowerLimit) }}
+            {{ form_widget(form.lowerLimit, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.lowerLimit) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.upperLimit) }}
+            {{ form_widget(form.upperLimit, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.upperLimit) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.rate) }}
+            {{ form_widget(form.rate, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.rate) }}
+        </div>
+
+        <button class="btn btn-success">{{ tax_band.id ? 'Update' : 'Create' }}</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'frontend_layout.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-center">
+                    <h4>Tax Calculator</h4>
+                </div>
+                <div class="card-body">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% if result %}
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-center">
+                    <h5>Results</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Gross Annual Salary:</strong> £{{ result.grossSalary|number_format(2) }}</p>
+                    <p><strong>Gross Monthly Salary:</strong> £{{ result.grossMonthlySalary|number_format(2) }}</p>
+                    <p><strong>Net Annual Salary:</strong> £{{ result.netSalary|number_format(2) }}</p>
+                    <p><strong>Net Monthly Salary:</strong> £{{ result.netMonthlySalary|number_format(2) }}</p>
+                    <p><strong>Annual Tax Paid:</strong> £{{ result.taxPaid|number_format(2) }}</p>
+                    <p><strong>Monthly Tax Paid:</strong> £{{ result.monthlyTaxPaid|number_format(2) }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

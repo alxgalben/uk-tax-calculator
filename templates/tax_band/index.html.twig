@@ -1,0 +1,48 @@
+{% extends 'backend_layout.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Tax Bands</h1>
+    
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {% if tax_bands is empty %}
+        <p>No tax bands available. Add a new one using the form below.</p>
+    {% else %}
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Lower Limit</th>
+                <th>Upper Limit</th>
+                <th>Rate (%)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tax_band in tax_bands %}
+                <tr>
+                    <td>{{ tax_band.lowerLimit }}</td>
+                    <td>{{ tax_band.upperLimit ?: 'No upper limit' }}</td>
+                    <td>{{ tax_band.rate }}</td>
+                    <td>
+                        <a href="{{ path('tax_band_edit', {id: tax_band.id}) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ path('tax_band_delete', {id: tax_band.id}) }}" method="post" style="display:inline;">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ tax_band.id) }}">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">No tax bands found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('tax_band_new') }}" class="btn btn-success">Add New Tax Band</a>
+</div>
+{% endblock %}
