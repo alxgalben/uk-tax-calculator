@@ -25,10 +25,10 @@ This is a simple Symfony-based Tax Calculator application. It allows users to in
 
 ## Routes
 
-/tax-calculator  --> main page
-/admin/tax-band/  --> admin page
-/admin/tax-band/new  --> add a new band
-/admin/tax-band/edit  --> edit a band
+/tax-calculator  --> main page  
+/admin/tax-band/  --> admin page  
+/admin/tax-band/new  --> add a new band  
+/admin/tax-band/edit  --> edit a band  
 
 ## Installation
 
